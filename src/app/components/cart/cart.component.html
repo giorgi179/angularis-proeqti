@@ -1,19 +1,23 @@
 <div class="container">
-    <h1>Cart</h1>
-    <div *ngFor="let item of cart" class="cart-item">
-      <div class="pptt">
-        <img class="imiji" [src]="item.product.image" alt="{{ item.product.name }}">
-        <h2>{{ item.product.name }}</h2>
-        <p>Price: {{ item.product.price }}</p>
-        <p>Spiciness: {{ item.product.spiciness }}</p>
-        <p>Nuts: {{ item.product.nuts ? 'Yes' : 'No' }}</p>
-        <p>Vegetarian: {{ item.product.vegetarian ? 'Yes' : 'No' }}</p>
-        <button (click)="removeFromCart(item.productId)">Remove</button>
+  <h1>Cart</h1>
+  <div *ngFor="let item of cart" class="cart-item">
+    <div class="pptt">
+      <img class="imiji" [src]="item.product.image" alt="{{ item.product.name }}">
+      <h2>{{ item.product.name }}</h2>
+      <p>Price: {{ item.product.price }}</p>
+      <p>Spiciness: {{ item.product.spiciness ? item.product.spiciness : 'Not Chosen' }}</p>
+      <p>Nuts: {{ item.product.nuts ? 'Yes' : 'No' }}</p>
+      <p>Vegetarian: {{ item.product.vegetarian ? 'Yes' : 'No' }}</p>
+      <div class="quantity-control">
+        <button (click)="decreaseQuantity(item)">-</button>
+        <input type="number" [value]="item.quantity" min="1" max="100" readonly>
+        <button (click)="increaseQuantity(item)">+</button>
       </div>
-    </div>
-    <div class="total-price">
-      <h2 class="text">$ {{ getTotalPrice() }}</h2>
-      <button class="checkout-button" (click)="proceedToCheckout()">Proceed to Checkout</button>
+      <button (click)="removeFromCart(item.productId)">Remove</button>
     </div>
   </div>
-  
+  <div class="total-price">
+    <h2 class="text">$ {{ getTotalPrice() }}</h2>
+    <button class="checkout-button" (click)="proceedToCheckout()">PROCEED TO CHECKOUT</button>
+  </div>
+</div>

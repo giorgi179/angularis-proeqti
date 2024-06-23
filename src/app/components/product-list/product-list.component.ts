@@ -33,7 +33,7 @@ export class ProductListComponent implements OnInit {
   }
 
   applyFilter(): void {
-    // Trigger change detection and apply the filter logic
+
     this.filterProducts();
   }
 
@@ -47,6 +47,7 @@ export class ProductListComponent implements OnInit {
     this.apiService.getProducts().subscribe(data => this.products = data);
   }
 
+  
   filterProducts(): any[] {
     let filteredProducts = this.products;
 
@@ -65,9 +66,11 @@ export class ProductListComponent implements OnInit {
     if (this.filters.vegetarian) {
       filteredProducts = filteredProducts.filter(product => product.vegetarian);
     }
-
+    if (this.filters.spiciness !== null) {
+      filteredProducts = filteredProducts.filter(product => product.spiciness === this.filters.spiciness);
+    }
     return filteredProducts;
-    // product.model.ts
+  
 
 
 

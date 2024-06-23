@@ -7,32 +7,49 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  
   cart: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.getCart();
+    this.loadCart();
   }
 
-  getCart() {
-    this.apiService.getCart().subscribe((cart: any[]) => {
-      this.cart = cart;
-    });
-  }
-
-  removeFromCart(productId: number) {
-    this.apiService.removeFromCart(productId).subscribe(() => {
-      this.cart = this.cart.filter(item => item.productId !== productId);
+  loadCart() {
+    this.apiService.getCart().subscribe(data => {
+      this.cart = data;
     });
   }
 
   getTotalPrice() {
-    return this.cart.reduce((total, item) => total + item.product.price, 0);
+    return this.cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  }
+
+  increaseQuantity(item: { quantity: number; }) {
+    if (item.quantity < 100) {
+      item.quantity++;
+      this.updateCart();
+    }
+  }
+
+  decreaseQuantity(item: { quantity: number; }) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.updateCart();
+    }
+  }
+
+  removeFromCart(productId: any) {
+    this.cart = this.cart.filter(item => item.productId !== productId);
+    this.updateCart();
+  }
+
+  updateCart() {
+    this.apiService.updateCart(this.cart).subscribe();
   }
 
   proceedToCheckout() {
-    // აქ დაამატე ლოგიკა "Proceed to Checkout" ღილაკისთვის
-    console.log('Proceed to Checkout');
+   
   }
 }

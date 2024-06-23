@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  [x: string]: any;
   private baseUrl = 'https://restaurant.stepprojects.ge/api';
+  
 
   constructor(private http: HttpClient) { }
 
+  
   getProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Products/GetAll`);
   }
@@ -26,7 +29,10 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/Baskets/AddToBasket`, { productId: product.id });
   }
 
-  removeFromCart(productId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Baskets/RemoveFromBasket/${productId}`);
+  removeItemFromCart(productId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/Basket/Remove/${productId}`);
+  }
+  updateCart(cart: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/Basket/Update`, cart);
   }
 }

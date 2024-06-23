@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -125,7 +124,7 @@ body {
   background-color: #218838;
 }
 
-/* Responsive styles */
+
 @media only screen and (max-width: 600px) {
 
   /* Global Styles */
