@@ -1,0 +1,17 @@
+
+.text1{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.text2{
+    display: flex;
+    justify-content: center;
+}
+.filter{
+    gap: 20px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}

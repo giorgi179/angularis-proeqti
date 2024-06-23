@@ -1,1 +1,188 @@
 /* You can add global styles to this file, and also import other style files */
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.text {
+  text-align: center;
+  padding: 20px;
+}
+
+.text1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.text2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+}
+
+.filter {
+  width: 600px; 
+  height: 80px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.filter select,
+.filter input {
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 1em;
+}
+
+.filter select {
+  
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.filter input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.filter button {
+  height: 50px;
+  width: 80px;
+  margin-right: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.filter button:hover {
+  background-color: #0056b3;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  flex: 0 0 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-card h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-card p {
+  margin: 5px 0;
+}
+
+.product-card button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background-color: #218838;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+
+  .product-card {
+    flex: 1 0 100%;
+    max-width: 90%;
+  }
+
+  .filter {
+    width: 90%;
+  }
+
+  .product-card {
+    flex: 1 0 100%;
+    max-width: 90%;
+  }
+
+  .filter {
+    width: 90%;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav .Home {
+    margin-bottom: 10px;
+  }
+
+  nav .Home a {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
+  nav .org {
+    flex-direction: column;
+  }
+
+  nav .giorgi,
+  nav .ordering {
+    font-size: 20px;
+  }
+  .container {
+    align-items: center;
+  }
+
+ 
+  .filter select {
+    width: 100%;
+  }
+
+  .filter label {
+    font-size: 1em;
+  }
+
+  .filter button {
+    margin: 5px 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="text">
+  <h1 class="text1">Fast And Efficient, Online Ordering You Must Try.</h1>
+  <h1 class="text2">Categories</h1>
+</div>
+<div class="container">
+  <div class="filter">
+    <select [(ngModel)]="selectedCategory">
+      <option value="All">All</option>
+      <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+    </select>
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="filters.noNuts">
+        No Nuts
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="filters.vegetarian">
+        Vegetarian Only
+      </label>
+    </div>
+    <button (click)="resetFilter()">RESET</button>
+    <button (click)="applyFilter()">APPLY FILTER</button>
+  </div>
+  <div class="products">
+    <div *ngFor="let product of filterProducts()" class="product-card">
+      <div>
+        <img class="imiji" [src]="product.image" alt="{{ product.name }}">
+        <h2>{{ product.name }}</h2>
+        <p>Price: {{ product.price }}</p>
+        <p>Spiciness: {{ product.spiciness }}</p>
+        <p>Nuts: {{ product.nuts ? 'Yes' : 'No' }}</p>
+        <p>Vegetarian: {{ product.vegetarian ? 'Yes' : 'No' }}</p>
+        <button (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

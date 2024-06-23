@@ -1,0 +1,55 @@
+
+.Home{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.ordering{
+    margin: 10px 0px -90px 10px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #343a40;
+  }
+  
+  nav .Home a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  nav .Home a:hover {
+    color: #ffc107;
+  }
+  
+  nav .org {
+    display: flex;
+    align-items: center;
+  }
+  
+  nav .giorgi {
+    color: #ffc107;
+    margin: 0;
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  nav .ordering {
+    color: #fff;
+    margin: 0;
+    font-size: 24px;
+  }
+  
