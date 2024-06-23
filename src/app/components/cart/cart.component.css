@@ -1,106 +1,170 @@
+/* Global Styles */
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
- 
-    
-  }
-  
-  h1 {
-    text-align: center;
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .cart-item {
-    margin-top: 20px;
-  }
-  
-  .pptt {
+  width: 80%;
+  margin: 0 auto;
+}
 
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
-    gap: 20px;
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.pptt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imiji {
+  width: 100px;
+  height: auto;
+}
+
+.pptt h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.pptt p {
+  margin: 0.3rem 0;
+}
+
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.text1 {
+  font-weight: bold;
+}
+
+.checkout-button {
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Styles for screens with max-width: 600px */
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 0 1rem;
   }
-  
-  .pptt img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
   }
-  
+
+  .pptt {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .imiji {
+    width: 100%;
+    max-width: 150px;
+    margin-bottom: 1rem;
+  }
+
   .pptt h2 {
-    font-size: 1.8em;
-    color: #333;
+    font-size: 1.5rem;
   }
-  
+
   .pptt p {
-    margin: 5px 0;
-    color: #666;
+    font-size: 1rem;
   }
-  
-  .pptt button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .pptt button:hover {
-    background-color: #d32f2f;
-  }
+
   .total-price {
-    margin-top: 20px;
-    font-size: 1.5em;
-    color: #333;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
   }
-  .product-details button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .product-details button:hover {
-    background-color: #d32f2f;
-  }
-  
+
   .checkout-button {
-    height: 130px;
-    width: 180px;
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    color: white;
-    background-color: #4caf50;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem; /* Smaller padding */
+    font-size: 0.9rem; /* Smaller font size */
+    text-align: center;
+    margin-top: 1rem;
+
   }
-  
-  .checkout-button:hover {
-    background-color: #45a049;
+
+  button {
+    padding: 0.4rem 0.8rem; /* Smaller padding for other buttons */
+    font-size: 0.9rem; /* Smaller font size for other buttons */
   }
-  .text1{
-    display: flex;
-    justify-content: center;
+}
+
+/* Styles for screens with min-width: 600px */
+@media only screen and (min-width: 600px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
   }
-  
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+  .cart-item {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .pptt {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imiji {
+    width: 100px;
+    height: auto;
+  }
+
+  .pptt h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .pptt p {
+    margin: 0.3rem 0;
+  }
+
+  .total-price {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .checkout-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+}
