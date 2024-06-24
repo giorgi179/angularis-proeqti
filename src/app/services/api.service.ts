@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Routes } from '@angular/router';
+import { ContactComponent } from '../contact/contact.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
+
+
+  
   [x: string]: any;
   private baseUrl = 'https://restaurant.stepprojects.ge/api';
   
@@ -35,4 +42,5 @@ export class ApiService {
   updateCart(cart: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/Basket/Update`, cart);
   }
+  
 }

@@ -15,7 +15,7 @@
       </label>
       <label>
         <input type="checkbox" [(ngModel)]="filters.vegetarian">
-        Vegetarian Only
+        Vegetarian
       </label>
     </div>
     <button (click)="resetFilter()">RESET</button>
@@ -28,8 +28,8 @@
         <h2>{{ product.name }}</h2>
         <p>Price: {{ product.price }}</p>
         <p>Spiciness: {{ product.spiciness }}</p>
-        <p>Nuts: {{ product.nuts ? 'Yes' : 'No' }}</p>
-        <p>Vegetarian: {{ product.vegetarian ? 'Yes' : 'No' }}</p>
+        <p>Vegetarian: {{ product.vegetarian ? '✔️' : '❌' }}</p>
+        <p>Nuts: {{ product.nuts ? '✔️' : '❌' }}</p>
         <button (click)="addToCart(product)">Add to Cart</button>
       </div>
     </div>

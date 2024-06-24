@@ -52,4 +52,7 @@ body {
     margin: 0;
     font-size: 24px;
   }
-  
+  .concact{
+    display: flex;
+    justify-content: center;
+  }

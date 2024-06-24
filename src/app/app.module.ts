@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ProductListComponent,
     CartComponent,
     NavbarComponent,
+    ContactComponent,
 
   ],
   imports: [

@@ -6,6 +6,7 @@ import { ApiService } from '../../services/api.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
+
 export class ProductListComponent implements OnInit {
 [x: string]: any;
   products: any[] = [];
@@ -14,10 +15,10 @@ export class ProductListComponent implements OnInit {
   filters: any = {
     spiciness: null,
     noNuts: false,
-    vegetarian: false
+    vegetarian: false,
     
   };
-  
+
 
   constructor(private apiService: ApiService) { }
 
@@ -41,12 +42,13 @@ export class ProductListComponent implements OnInit {
     this.filters = {
       spiciness: null,
       noNuts: false,
-      vegetarian: false
+      vegetarian: false,
     };
     this.selectedCategory = 'All';
     this.apiService.getProducts().subscribe(data => this.products = data);
   }
 
+  
   
   filterProducts(): any[] {
     let filteredProducts = this.products;
