@@ -1,25 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Routes } from '@angular/router';
-import { ContactComponent } from '../contact/contact.component';
-
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class ApiService {
-
-
-  
   [x: string]: any;
   private baseUrl = 'https://restaurant.stepprojects.ge/api';
-  
 
   constructor(private http: HttpClient) { }
 
-  
   getProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Products/GetAll`);
   }
@@ -37,10 +28,10 @@ export class ApiService {
   }
 
   removeItemFromCart(productId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/Basket/Remove/${productId}`);
+    return this.http.delete(`${this.baseUrl}/Baskets/Remove/${productId}`);
   }
+
   updateCart(cart: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/Basket/Update`, cart);
+    return this.http.post(`${this.baseUrl}/Baskets/Update`, cart);
   }
-  
 }

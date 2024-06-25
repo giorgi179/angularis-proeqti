@@ -29,7 +29,7 @@ export class ProductListComponent implements OnInit {
 
   addToCart(product: any): void {
     this.apiService.addToCart(product).subscribe(() => {
-      alert('Product added to cart!');
+     console.log('Product added to cart!');
     });
   }
 

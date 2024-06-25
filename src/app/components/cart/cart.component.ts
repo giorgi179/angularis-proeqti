@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  removeFromCart(productId: any) {
+  removeFromCart(productId: number) {
     this.cart = this.cart.filter(item => item.productId !== productId);
     this.updateCart();
   }
