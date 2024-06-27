@@ -8,34 +8,39 @@ import { ApiService } from '../../services/api.service';
 })
 
 export class ProductListComponent implements OnInit {
+
 [x: string]: any;
   products: any[] = [];
   categories: any[] = [];
-  selectedCategory: string = 'All';
+  selectedCategory: number = 0;
   filters: any = {
     spiciness: null,
     noNuts: false,
     vegetarian: false,
     
   };
+  filteredProducts: any[] = [];
 
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getProducts().subscribe(data => this.products = data);
+    this.apiService.getProducts().subscribe( (data) => {
+      this.products = data;
+      this.filteredProducts = this.products} 
+      );
     this.apiService.getCategories().subscribe(data => this.categories = data);
   }
 
   addToCart(product: any): void {
     this.apiService.addToCart(product).subscribe(() => {
-     console.log('Product added to cart!');
+      console.log('Product added to cart!');
     });
   }
 
   applyFilter(): void {
 
-    this.filterProducts();
+    // this.filterProducts();
   }
 
   resetFilter(): void {
@@ -44,37 +49,38 @@ export class ProductListComponent implements OnInit {
       noNuts: false,
       vegetarian: false,
     };
-    this.selectedCategory = 'All';
-    this.apiService.getProducts().subscribe(data => this.products = data);
+    this.selectedCategory = 0;
+    this.apiService.getProducts().subscribe(data => this.filteredProducts = data);
   }
 
   
   
-  filterProducts(): any[] {
-    let filteredProducts = this.products;
-
-    if (this.selectedCategory !== 'All') {
-      filteredProducts = filteredProducts.filter(product => product.category === this.selectedCategory);
-    }
+  filterProducts(categoryId: number) {
+      if(categoryId == 0) this.filteredProducts = this.products; 
+       else this.filteredProducts = this.products.filter(product => product.categoryId == categoryId);
+    
 
     if (this.filters.spiciness) {
-      filteredProducts = filteredProducts.filter(product => product.spiciness === this.filters.spiciness);
+      this.filteredProducts = this.filteredProducts.filter(product => product.spiciness === this.filters.spiciness);
     }
 
     if (this.filters.noNuts) {
-      filteredProducts = filteredProducts.filter(product => !product.nuts);
+      this.filteredProducts = this.filteredProducts.filter(product => !product.nuts);
     }
 
     if (this.filters.vegetarian) {
-      filteredProducts = filteredProducts.filter(product => product.vegetarian);
+      this.filteredProducts = this.filteredProducts.filter(product => product.vegetarian);
     }
     if (this.filters.spiciness !== null) {
-      filteredProducts = filteredProducts.filter(product => product.spiciness === this.filters.spiciness);
+      this.filteredProducts = this.filteredProducts.filter(product => product.spiciness === this.filters.spiciness);
     }
-    return filteredProducts;
-  
 
+    return this.filteredProducts;
 
+  }
 
+  onChange(e: any): void {
+    this.filterProducts(e.value);
+    console.log(e.value);
   }
 }

@@ -4,9 +4,9 @@
 </div>
 <div class="container">
   <div class="filter">
-    <select [(ngModel)]="selectedCategory">
-      <option value="All">All</option>
-      <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+    <select [(ngModel)]="selectedCategory" (change)="onChange($event.target)">
+      <option [value]="0">All</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
     </select>
     <div>
       <label>
@@ -22,7 +22,7 @@
     <button (click)="applyFilter()">APPLY FILTER</button>
   </div>
   <div class="products">
-    <div *ngFor="let product of filterProducts()" class="product-card">
+    <div *ngFor="let product of filteredProducts" class="product-card">
       <div>
         <img class="imiji" [src]="product.image" alt="{{ product.name }}">
         <h2>{{ product.name }}</h2>
