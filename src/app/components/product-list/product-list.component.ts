@@ -9,8 +9,8 @@ import { ApiService } from '../../services/api.service';
 
 export class ProductListComponent implements OnInit {
 
-[x: string]: any;
-  products: any[] = [];
+
+  products: any[] = [2];
   categories: any[] = [];
   selectedCategory: number = 0;
   filters: any = {
@@ -39,8 +39,7 @@ export class ProductListComponent implements OnInit {
   }
 
   applyFilter(): void {
-
-    // this.filterProducts();
+    this.filterProducts(0);
   }
 
   resetFilter(): void {

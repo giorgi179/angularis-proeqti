@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Cart</h1>
+   <div class="conteinerpatara">
   <div *ngFor="let item of cart" class="cart-item">
     <div class="pptt">
       <img class="imiji" [src]="item.product.image" alt="{{ item.product.name }}">
@@ -16,8 +17,10 @@
       <button (click)="removeFromCart(item.productId)">Remove</button>
     </div>
   </div>
+  </div>
   <div class="total-price">
     <h2 class="text">$ {{ getTotalPrice() }}</h2>
     <button class="checkout-button" (click)="proceedToCheckout()">PROCEED TO CHECKOUT</button>
   </div>
+
 </div>

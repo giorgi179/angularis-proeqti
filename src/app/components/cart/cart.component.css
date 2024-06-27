@@ -17,11 +17,14 @@ h1 {
   padding: 1rem;
   border-bottom: 1px solid #ccc;
 }
-
-.pptt {
-  display: grid;
+.conteinerpatara{
+    display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 20px;
+}
+.pptt {
+display: flex;
+justify-content: center;
 }
 
 .imiji {

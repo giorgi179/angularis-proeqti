@@ -6,15 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  contactForm = {
+  contact = {
     name: '',
     email: '',
+    password: '',
     message: ''
   };
+required: any;
+email: any;
 
   onSubmit() {
-    console.log('Form submitted:', this.contactForm);
-    // Here you can add logic to send the form data to your server
+    console.log('Form submitted:', this.contact);
+
   }
-  
 }

@@ -13,7 +13,7 @@ export class ApiService {
 
 
   
-  [x: string]: any;
+
   private baseUrl = 'https://restaurant.stepprojects.ge/api';
   
 
@@ -22,12 +22,12 @@ export class ApiService {
   
   getProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Products/GetAll`);
-    //console.log(this.http.get(`${this.baseUrl}/Products/GetAll`));
+    // console.log(this.http.get(`${this.baseUrl}/Products/GetAll`));
   }
 
   getCategories(): Observable<any> {
     return this.http.get(`${this.baseUrl}/Categories/GetAll`);
-    //console.log(this.http.get(`${this.baseUrl}/Categories/GetAll`));
+    // console.log(this.http.get(`${this.baseUrl}/Categories/GetAll`));
   }
 
   getCart(): Observable<any> {
@@ -44,5 +44,6 @@ export class ApiService {
   updateCart(cart: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/Basket/Update`, cart);
   }
+  
   
 }
